@@ -2,6 +2,8 @@ import streamlit as st
 import google.generativeai as genai
 from gtts import gTTS
 from playsound import playsound
+from pydub import AudioSegment
+from pydub.playback import play
 
 def gemini(prompt):
     genai.configure(api_key="AIzaSyAaW1FgmWvCwkouc18yZ2GeAXNyWXcc6VQ")
@@ -94,8 +96,7 @@ def gemini(prompt):
 
 
 
-from pydub import AudioSegment
-from pydub.playback import play
+
 
 # Define the text-to-speech function
 def text_to_speech(text):
