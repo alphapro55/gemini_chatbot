@@ -38,38 +38,7 @@ def gemini(prompt):
             return output
             
 
-
-# form = st.form(key='my_form')
-# name = form.text_input(label='Please ask the question!')
-# submit_button = form.form_submit_button(label='Submit')
-
-# # function all
-# data = gemini(name)
-# # st.form_submit_button returns True upon form submit
-# if submit_button:
-    
-#     st.write(data)
-    
-        
-
-def text_to_speech(text):
-    """
-    Converts text to speech using gTTS and plays the audio file.
-
-    Args:
-        text: The text to convert to speech.
-    """
-
-    # Create a gTTS object
-    tts = gTTS(text=text, lang='en')
-
-    # Save the audio file
-    audio_file = 'audio.mp3'
-    tts.save(audio_file)
-
-    # Play the audio file
-    playsound(audio_file)
-    
+st.title("Gemini ChatBot")
 form = st.form(key='my_form')
 name = form.text_input(label='Please ask the question!')
 submit_button = form.form_submit_button(label='Submit')
@@ -77,20 +46,9 @@ submit_button = form.form_submit_button(label='Submit')
 # function all
 data = gemini(name)
 # st.form_submit_button returns True upon form submit
-# if submit_button:
-    # st.write(data)
-    # Add a button to play the audio
-if st.button('Hear the response'):
-    text_to_speech(data)
-# Add a speaker icon to the button
-hear_button = st.button('Hear the response')
-hear_button.button_html("""
-<button type="button" class="btn btn-primary">
-<i class="fa fa-volume-up"></i>
-Hear the response
-</button>
-""")
-
-
-# -------------------------------------------------new one
+if submit_button:
+    
+    st.write(data)
+    
+        
 
