@@ -52,53 +52,6 @@ def gemini(prompt):
     
         
 
-# def text_to_speech(text):
-#     """
-#     Converts text to speech using gTTS and plays the audio file.
-
-#     Args:
-#         text: The text to convert to speech.
-#     """
-
-#     # Create a gTTS object
-#     tts = gTTS(text=text, lang='en')
-
-#     # Save the audio file
-#     audio_file = 'audio.mp3'
-#     tts.save(audio_file)
-
-#     # Play the audio file
-#     playsound(audio_file)
-    
-# form = st.form(key='my_form')
-# name = form.text_input(label='Please ask the question!')
-# submit_button = form.form_submit_button(label='Submit')
-
-# # function all
-# data = gemini(name)
-# # st.form_submit_button returns True upon form submit
-# # if submit_button:
-#     # st.write(data)
-#     # Add a button to play the audio
-# if st.button('Hear the response'):
-#     text_to_speech(data)
-# # Add a speaker icon to the button
-# hear_button = st.button('Hear the response')
-# hear_button.button_html("""
-# <button type="button" class="btn btn-primary">
-# <i class="fa fa-volume-up"></i>
-# Hear the response
-# </button>
-# """)
-
-
-# -------------------------------------------------new one
-
-
-
-
-
-# Define the text-to-speech function
 def text_to_speech(text):
     """
     Converts text to speech using gTTS and plays the audio file.
@@ -106,31 +59,38 @@ def text_to_speech(text):
     Args:
         text: The text to convert to speech.
     """
+
     # Create a gTTS object
     tts = gTTS(text=text, lang='en')
 
-    # Convert the audio to an in-memory file
-    audio_data = tts.get_audio_data()
+    # Save the audio file
+    audio_file = 'audio.mp3'
+    tts.save(audio_file)
 
-    # Play the in-memory audio
-    play(AudioSegment.from_file_in_memory(audio_data, format="mp3"))
-
-# Streamlit app code
-st.title("Text-to-Speech App")
-
-# Create a form to take user input
+    # Play the audio file
+    playsound(audio_file)
+    
 form = st.form(key='my_form')
 name = form.text_input(label='Please ask the question!')
 submit_button = form.form_submit_button(label='Submit')
 
-# Process the data on form submission
-if submit_button:
-    # Call the function to get the response data
-    data = gemini(name)
-    
-    # Display the response data
-    st.write("Response:", data)
-
+# function all
+data = gemini(name)
+# st.form_submit_button returns True upon form submit
+# if submit_button:
+    # st.write(data)
     # Add a button to play the audio
-    if st.button('Hear the response'):
-        text_to_speech(data)
+if st.button('Hear the response'):
+    text_to_speech(data)
+# Add a speaker icon to the button
+hear_button = st.button('Hear the response')
+hear_button.button_html("""
+<button type="button" class="btn btn-primary">
+<i class="fa fa-volume-up"></i>
+Hear the response
+</button>
+""")
+
+
+# -------------------------------------------------new one
+
