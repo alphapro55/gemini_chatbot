@@ -1,7 +1,11 @@
 import streamlit as st
 import google.generativeai as genai
 
-st.title("ChatGPT-like clone with Gemini")
+col1, col2 = st.columns([1, 6])
+with col1:
+    st.image("logo.png", width=80)
+with col2:
+    st.title("ChatBot By AlphaLogics")
 
 # Configure Gemini API
 genai.configure(api_key="AIzaSyAaW1FgmWvCwkouc18yZ2GeAXNyWXcc6VQ")  # Replace with your API key
